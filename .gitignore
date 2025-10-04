@@ -1,0 +1,26 @@
+# 🐍 Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# 🧱 Ambientes virtuais
+venv/
+.env/
+
+# 💾 Banco de dados local (SQLite)
+instance/
+*.db
+
+# 🖼️ QR Codes gerados dinamicamente
+static/img/qr_code_payment_*.png
+
+# ⚙️ Configurações locais e IDEs
+.vscode/
+.idea/
+
+# 📦 Logs e temporários
+*.log
+*.tmp
+
+# 🧪 Arquivos de testes temporários
+tests/__pycache__/
