@@ -24,3 +24,4 @@ static/img/qr_code_payment_*.png
 
 # 🧪 Arquivos de testes temporários
 tests/__pycache__/
+".vscode/" 
