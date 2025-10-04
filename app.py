@@ -5,7 +5,7 @@ from db_models.payment import Payment
 from datetime import datetime, timedelta
 from payments.pix import Pix
 from flask_socketio import SocketIO
-from payments import pix
+
 
 #API - Pagamento
 app = Flask(__name__)
@@ -66,7 +66,8 @@ def pix_confirmation():
     
     payment.paid = True 
     db.session.commit()
-
+    #add websocket
+    socketio.emit(f"payment-confirmed-{payment.id}")
     return jsonify({"message": "The payment has been confirmed"})
 
 @app.route('/payments/pix/<int:payment_id>', methods=['GET'])
@@ -74,7 +75,8 @@ def payment_pix_page(payment_id):
     payment = Payment.query.get(payment_id)
 
 
-
+    if payment.paid:
+        return render_template("payment.html")
 
 
     
