@@ -58,6 +58,7 @@ def pix_confirmation():
 
     #payment?
     payment = Payment.query.filter_by(bank_payment_id = data.get("bank_payment_id")).first()
+
     if not payment or payment.paid:
         return jsonify({"message": "Payment not found"}), 404
     
@@ -74,9 +75,14 @@ def pix_confirmation():
 def payment_pix_page(payment_id):
     payment = Payment.query.get(payment_id)
 
+    if not payment:
+        return render_template("404.html")
+
 
     if payment.paid:
-        return render_template("payment.html")
+        return render_template("confirmed_payment.html",
+                               payment_id=payment.id,
+                               value = payment.value)
 
 
     
@@ -93,7 +99,9 @@ def payment_pix_page(payment_id):
 def handle_connect():
     print("Client connected to the server")
 
-
+@socketio.on("disconnect")
+def handle_disconnect():
+    print("Client has disconnected to the server")
 
 if __name__ == '__main__':
 
