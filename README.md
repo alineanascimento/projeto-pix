@@ -39,10 +39,8 @@ pip install -r requirements.txt
 
 5. Inicialize o banco de dados:
 ```bash
-python
->>> from app import app, db
->>> with app.app_context():
-...     db.create_all()
+flask shell
+>>> db.create_all()
 >>> exit()
 ```
 
