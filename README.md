@@ -87,7 +87,7 @@ Content-Type: application/json
 GET /payments/pix/qr_code/{file_name}
 ```
 
-**Nota:** Os QR Codes são salvos em `static/template_img/`
+**Nota:** Os QR Codes são salvos em `static/img/`
 
 ### Confirmar pagamento
 ```http
@@ -133,7 +133,7 @@ projeto-pix/
 │   └── 404.html               # Página de erro
 ├── static/                     # Arquivos estáticos
 │   ├── css/                   # Estilos CSS
-│   └── template_img/          # QR Codes gerados
+│   └── img/                   # QR Codes gerados
 └── tests/                      # Testes unitários
     └── test_pix.py            # Testes da classe Pix
 ```
