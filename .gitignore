@@ -36,3 +36,7 @@ instance/
 # Arquivos do sistema
 .DS_Store
 Thumbs.db
+
+# QR codes gerados
+img/
+qr_code_*.png
